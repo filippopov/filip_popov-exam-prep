@@ -43,7 +43,7 @@ jobs:
       - name: Install Playwright Browsers
         run: npx playwright install
       - name: Start the application
-        run: npm run test:ui
+        run: npm run start &
       - name: Run the UI tests
         run: npm run test:ui
       - name: Display softuni username
