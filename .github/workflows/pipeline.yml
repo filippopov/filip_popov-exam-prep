@@ -46,5 +46,14 @@ jobs:
         run: npm run start &
       - name: Run the UI tests
         run: npm run test:ui
-      - name: Display softuni username
-        run: echo "filip_popov"
+
+  deploy-production:
+    needs: run-ui-test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy to production
+        uses: johnbeynon/render-deploy-action@v0.0.8
+        with:
+          service-id: ${{ secrets.MY_RENDER_SERVICE_ID }}
+          api-key: ${{ secrets.MY_RENDER_API_KEY }}
